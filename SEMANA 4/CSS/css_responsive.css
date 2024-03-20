@@ -106,7 +106,8 @@ a{
 #main{
     grid-area: main; /* matricula el nombre al contenedor section para grid */ /*nombre css grid del <section> */
     border: 2px solid green;
-    border-radius: ;
+    border-radius: 22px;
+    border: 2px solid yellowgreen;
     /* se define el ancho y altura contenedor  para ajustar a vista a dispositivo actual */
     max-width: 100%;
     height: auto;
@@ -135,6 +136,8 @@ section article{
     background-color: rgba(255,255,255,0.6);
     backdrop-filter: blur(5px);
     margin: 20px;
+    border-radius:  22px ;
+    border: 2px solid yellowgreen;
 }
 
 /* seccion barra lateral */ /* seccion <aside> */
@@ -146,6 +149,8 @@ section article{
         background-color: rgba(255,255,255,0.6);
         backdrop-filter: blur(5px);
         align-items: center;
+        border-radius: 22px ;
+        border: 2px solid yellowgreen;
 }
 /* se define ancho y altura contenedor para ajustar vista de dispositivo actual*/
 iframe{
@@ -186,3 +191,65 @@ i[class^="fa"]{
 /* seccion css grid diseño  web responsive  */
 /* se define estilos  al contenedor  grid  en general vista pc */
 
+
+
+/* seccion CSS grid para diseño web responsive */
+/* Vista pc : 3 columnas */
+#grid-container > * {
+    text-align: center;
+    box-shadow: 1px 1px 7px 0px rgba(0, 0, 0 ,0.75);
+    }
+#grid-container{
+    display:grid;
+    grid-gap:10px;
+    grid-template: 
+    "header header header " 150px
+    "nav nav nav" 50px
+    "main main sidebar" 300px
+    "main main sidebar" 300px
+    "main main sidebar" 250px
+    "footer footer footer" 150px /
+    1300px 150px 300px;
+}
+/* SECCION VISTA CELULAR: 1 COLUMNA  */
+@media (max-width:640px){
+    #grid-container{
+        grid-template:
+        "header" 150px
+        "nav" 50px
+        "main" 1120px
+        "sidebar" 800px
+        "footer" 100px /
+        500px;
+        font-size: 60%;
+    }
+    #menu{
+        display: none; /*para ocualtar */ 
+    }
+    #main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        height: auto;
+    }
+    .programa{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        height: auto;
+        border:1px solid black;
+    }
+    iframe{
+        max-width: 1005;
+        height: auto;
+    }
+    .buscarbox{
+        display: none;
+    }
+}
